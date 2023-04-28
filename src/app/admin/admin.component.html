@@ -1,0 +1,70 @@
+<div class="columns">
+    <div class="column">
+        <div class="card">
+            <div class="card-content">
+                <div class="content">Upravljanje korisnicima</div>
+            </div>
+            <footer class="card-footer">
+              <a [routerLink]="'user/create'" class="card-footer-item">Kreiraj</a>
+              <a [routerLink]="'users/preview'" class="card-footer-item">Pregled</a>
+            </footer>
+          </div>
+    </div>
+
+    <div class="column">
+        <div class="card">
+            <div class="card-content">
+                <div class="content">Upravljanje rolama</div>
+            </div>
+            <footer class="card-footer">
+              <a [routerLink]="'roles/create'" class="card-footer-item">Kreiraj</a>
+              <a [routerLink]="'roles/preview'" class="card-footer-item">Pregled</a>
+            </footer>
+          </div>
+    </div>
+
+    <div class="column">
+        <div class="card">
+            <div class="card-content">
+                <div class="content">Upravljanje mackama</div>
+            </div>
+            <footer class="card-footer">
+              <a [routerLink]="'cat/create'" class="card-footer-item">Kreiraj</a>
+              <a [routerLink]="'cat/preview'" class="card-footer-item">Pregled</a>
+            </footer>
+          </div>
+    </div>
+
+    <div class="column">
+      <div class="card">
+          <div class="card-content">
+              <div class="content">Upravljanje proizvodima</div>
+          </div>
+          <footer class="card-footer">
+            <a [routerLink]="'product/create'" class="card-footer-item">Kreiraj</a>
+            <a [routerLink]="'product/preview'" class="card-footer-item">Pregled</a>
+          </footer>
+        </div>
+  </div>
+
+
+  <div class="column">
+    <div class="card">
+        <div class="card-content">
+            <div class="content">Upravljanje akcijama</div>
+        </div>
+        <footer class="card-footer">
+          <a [routerLink]="'action/create'" class="card-footer-item">Kreiraj</a>
+          <a [routerLink]="'action/preview'" class="card-footer-item">Pregled</a>
+        </footer>
+      </div>
+</div>
+
+
+</div>
+
+<!--Preview content-->
+<div class="columns">
+    <router-outlet></router-outlet>
+</div>
+

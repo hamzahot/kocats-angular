@@ -1,0 +1,16 @@
+.slika150{
+    height: 150px;
+}
+
+.slika200{
+    height: 200px;
+}
+
+
+
+.dio_teksta{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: normal; 
+}
+

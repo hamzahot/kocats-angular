@@ -1,0 +1,43 @@
+<!-- <mat-expansion-panel *ngIf="categories">
+    <mat-expansion-panel-header>
+        <mat-panel-title>CATEGORIES</mat-panel-title>
+    </mat-expansion-panel-header>
+
+   <mat-selection-list [multiple]="false" >
+        <mat-list-option *ngFor="let category of categories" [value]="category" >
+            <button mat-button>{{category}}</button>
+        </mat-list-option>
+   </mat-selection-list> 
+
+</mat-expansion-panel> -->
+
+
+
+<aside class="menu">
+    <p class="menu-label">
+      General
+    </p>
+    <ul class="menu-list">
+      <li *ngFor="let category of categories" class="mb-5"> 
+        <a [routerLink]="[category.url]" >
+          {{category.description}}
+        </a> 
+      </li>
+    </ul>
+
+    <!-- <div *ngIf="true" >
+        <p class="menu-label is-align-items-center" >
+            Profile
+            <mat-icon class="hej">person</mat-icon>
+        </p>
+          <ul class="menu-list">
+            <li><a>Shopping Cart</a></li>
+            <li><a>My Details</a></li>
+            <li><a>History</a></li>
+          </ul>
+    </div> -->
+
+    
+    
+    
+  </aside>

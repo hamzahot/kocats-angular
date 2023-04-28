@@ -1,0 +1,32 @@
+.slika150{
+    height: 150px;
+}
+
+.slika200{
+    height: 200px;
+}
+
+
+
+.dio_teksta{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: normal; 
+}
+
+.gap{
+    gap : 40px;
+}
+
+
+.text-ellipsis {
+    max-height: 200px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: normal;
+  }
+
+.text-ellipsis:hover{
+    overflow: visible;
+    white-space: normal;
+}

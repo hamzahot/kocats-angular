@@ -1,0 +1,35 @@
+<section style="padding: 25px">
+    <h4 class="title is-4">Pregled korisnika</h4>
+    <hr />
+  
+    <table class="table is-bordered is-striped is-narrow is-hoverable" >
+      <thead>
+        <th>Name</th>
+        <th>Races</th>
+        <th>Action</th>
+      </thead>
+      <tbody>
+        <tr *ngFor="let cat of cats">
+            <td class="has-text-centered" >{{cat.name}}</td>
+            <td><ul>
+              <li *ngFor="let item of cat.breeds"> {{item.name}} </li>
+              </ul>
+            </td>
+            <td >
+              <span class="icon" [ngStyle]="{'cursor': 'pointer'}" (click) = "deleteById(cat.catId)" >
+                <i class="fas fa-trash-alt"></i>
+              </span>
+    
+              <span class="icon" [ngStyle]="{'cursor': 'pointer'}" [routerLink]="['/admin/cat/edit', cat.catId]">
+                <i class="fas fa-edit"></i>
+              </span>
+
+              <span class="icon" [ngStyle]="{'cursor': 'pointer'}" (click)="sendCatId(cat.name, cat.catId)" >
+                <i class="fas fa-images"></i>
+              </span>
+
+            </td>
+        </tr>
+      </tbody>
+    </table>
+  </section>

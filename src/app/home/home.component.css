@@ -1,0 +1,16 @@
+
+
+.kontejner{
+    margin-left: auto;
+    margin-right: auto; 
+    max-width: 80rem; 
+    min-height: 100%; 
+    
+}
+
+.mat-drawer-container {
+    position: absolute;
+    top: auto;
+    width: 100%;
+    bottom: 5auto;
+  }

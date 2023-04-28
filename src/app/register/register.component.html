@@ -1,0 +1,130 @@
+<section *ngIf="registerUserForm">
+    <div class="columns">
+        <div class="column is-half">
+            <form [formGroup]="registerUserForm" (ngSubmit)="register()" >
+                <div class="field">
+                    <label class="label">First name</label>
+                    <div class="control">
+                        <input 
+                           type="text" 
+                           class="input" 
+                           placeholder="Enter first name... "
+                           formControlName = "firstName"/>
+
+                           <p class="help is-danger" 
+                              *ngIf="registerUserForm.controls.firstName.touched && !registerUserForm.controls.firstName.valid ">
+                               *First name is required! 
+                            </p>
+                    </div>
+                </div>
+
+                <div class="field">
+                    <label class="label">Last name</label>
+                    <div class="control">
+                        <input
+                            type="text" 
+                            class="input" 
+                            placeholder="Enter last name... "
+                            formControlName = "lastName" />
+
+                            <p class="help is-danger" 
+                              *ngIf="registerUserForm.controls.lastName.touched && !registerUserForm.controls.lastName.valid ">
+                               *Last name is required! 
+                            </p>
+                    </div>
+                </div>
+
+                <div class="field">
+                    <label class="label">Username</label>
+                    <div class="control">
+                        <input 
+                           type="text" 
+                           class="input" 
+                           placeholder="Enter username... "
+                           formControlName = "username" />
+
+                           <p class="help is-danger" *ngIf=" registerUserForm.controls.username.errors?.isUsernameTaken" >
+                                *Username {{registerUserForm.controls.username.value}} is already taken!
+                           </p>
+
+                           <p class="help is-danger" *ngIf="registerUserForm.controls.username.touched && !registerUserForm.controls.username.valid && !registerUserForm.controls.username.errors?.isUsernameTaken" >
+                            *Username is required!
+                       </p>
+                    </div>
+                </div>
+
+                <div class="field">
+                    <label class="label">Password</label>
+                    <div class="control">
+                        <input 
+                           type="password" 
+                           class="input" 
+                           placeholder="Enter Password.. "
+                           formControlName = "password" />
+
+                        <p class="help is-danger"
+                        *ngIf="  registerUserForm.controls.password.touched &&
+                                 !registerUserForm.controls.password.valid ">
+                            *Your password needs to be at least 8 characters long!
+                        </p>
+
+                    </div>
+                </div>
+
+                <div class="field">
+                    <label class="label">Email</label>
+                    <div class="control">
+                        <input 
+                           type="text" 
+                           class="input" 
+                           placeholder="Enter email... "
+                           formControlName = "email" />
+
+                           <p class="help is-danger"
+                              *ngIf=" registerUserForm.controls.email.touched  && 
+                                      !registerUserForm.controls.email.valid && 
+                                      registerUserForm.controls.email.errors?.emailValidationStatus ">
+
+                                      *Invalid email address.
+                           </p>
+
+
+                    </div>
+                </div>
+
+
+                <div class="field">
+                    <label class="label">Phone number</label>
+                    <div class="control">
+                        <input 
+                           type="text" 
+                           class="input" 
+                           placeholder="Enter phone number.. " 
+                           formControlName = "phoneNumber" />
+                    </div>
+                </div>
+
+
+                <!-- <div class="field">
+                    <label class="label">Roles</label>
+                    <div class="control">
+                        <div class="select is-multiple">
+                            <select multiple formControlName = "roles" >
+                                <option *ngFor="let role of roles" [value]="role"> {{role.name}} </option>
+                            </select>
+                        </div>
+
+                        <p class="help is-danger" 
+                              *ngIf="registerUserForm.controls.roles.touched && !registerUserForm.controls.roles.valid ">
+                               *Roles are required! 
+                            </p>
+                    </div>
+                    
+                </div> -->
+
+                <button type="submit" class="button is-primary" [disabled]="!registerUserForm.valid" >Register</button>
+
+            </form>
+        </div>
+    </div>
+</section>

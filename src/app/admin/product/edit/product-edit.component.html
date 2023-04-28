@@ -1,0 +1,44 @@
+<div class="columns" *ngIf="productEditForm">
+    <div class="column" >
+        <form [formGroup]="productEditForm" (ngSubmit)="updateProduct()" >
+
+            <div class="field">
+                <label class="label">Name</label>
+                <div class="control">
+                    <input 
+                       type="text" 
+                       class="input" 
+                       placeholder="Enter product name... "
+                       formControlName = "name"/>
+                </div>
+            </div>
+
+            <div class="field">
+                <label class="label">Description</label>
+                <div class="control">
+                    <input 
+                       type="text" 
+                       class="input" 
+                       placeholder="Enter product description.. "
+                       formControlName = "description"/>
+                </div>
+            </div>
+
+            <div class="field">
+                <label class="label">Description</label>
+                <div class="control">
+                    <input 
+                       type="number" 
+                       class="input" 
+                       placeholder="Enter product price.. "
+                       formControlName = "price"/>
+                </div>
+            </div>
+
+
+            <button type="submit" class="button is-primary"  [disabled]="!productEditForm.valid">Save Changes</button>
+
+
+        </form>
+    </div>
+</div>

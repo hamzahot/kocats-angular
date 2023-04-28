@@ -1,0 +1,130 @@
+<section *ngIf="createUserForm">
+    <div class="columns">
+        <div class="column">
+            <form [formGroup]="createUserForm" (ngSubmit)="create()" >
+                <div class="field">
+                    <label class="label">First name</label>
+                    <div class="control">
+                        <input 
+                           type="text" 
+                           class="input" 
+                           placeholder="Enter first name... "
+                           formControlName = "firstName"/>
+
+                           <p class="help is-danger" 
+                              *ngIf="createUserForm.controls.firstName.touched && !createUserForm.controls.firstName.valid ">
+                               *First name is required! 
+                            </p>
+                    </div>
+                </div>
+
+                <div class="field">
+                    <label class="label">Last name</label>
+                    <div class="control">
+                        <input
+                            type="text" 
+                            class="input" 
+                            placeholder="Enter last name... "
+                            formControlName = "lastName" />
+
+                            <p class="help is-danger" 
+                              *ngIf="createUserForm.controls.lastName.touched && !createUserForm.controls.lastName.valid ">
+                               *Last name is required! 
+                            </p>
+                    </div>
+                </div>
+
+                <div class="field">
+                    <label class="label">Username</label>
+                    <div class="control">
+                        <input 
+                           type="text" 
+                           class="input" 
+                           placeholder="Enter username... "
+                           formControlName = "username" />
+
+                           <p class="help is-danger" *ngIf=" createUserForm.controls.username.errors?.isUsernameTaken" >
+                                *Username {{createUserForm.controls.username.value}} is already taken!
+                           </p>
+
+                           <p class="help is-danger" *ngIf="createUserForm.controls.username.touched && !createUserForm.controls.username.valid && !createUserForm.controls.username.errors?.isUsernameTaken" >
+                            *Username is required!
+                       </p>
+                    </div>
+                </div>
+
+                <div class="field">
+                    <label class="label">Password</label>
+                    <div class="control">
+                        <input 
+                           type="password" 
+                           class="input" 
+                           placeholder="Enter Password.. "
+                           formControlName = "password" />
+
+                        <p class="help is-danger"
+                        *ngIf="  createUserForm.controls.password.touched &&
+                                 !createUserForm.controls.password.valid ">
+                            *Your password needs to be at least 8 characters long!
+                        </p>
+
+                    </div>
+                </div>
+
+                <div class="field">
+                    <label class="label">Email</label>
+                    <div class="control">
+                        <input 
+                           type="text" 
+                           class="input" 
+                           placeholder="Enter email... "
+                           formControlName = "email" />
+
+                           <p class="help is-danger"
+                              *ngIf=" createUserForm.controls.email.touched  && 
+                                      !createUserForm.controls.email.valid && 
+                                      createUserForm.controls.email.errors?.emailValidationStatus ">
+
+                                      *Invalid email address.
+                           </p>
+
+
+                    </div>
+                </div>
+
+
+                <div class="field">
+                    <label class="label">Phone number</label>
+                    <div class="control">
+                        <input 
+                           type="text" 
+                           class="input" 
+                           placeholder="Enter phone number.. " 
+                           formControlName = "phoneNumber" />
+                    </div>
+                </div>
+
+
+                <div class="field">
+                    <label class="label">Roles</label>
+                    <div class="control">
+                        <div class="select is-multiple">
+                            <select multiple formControlName = "roles" >
+                                <option *ngFor="let role of roles" [value]="role"> {{role.name}} </option>
+                            </select>
+                        </div>
+
+                        <p class="help is-danger" 
+                              *ngIf="createUserForm.controls.roles.touched && !createUserForm.controls.roles.valid ">
+                               *Roles are required! 
+                            </p>
+                    </div>
+                    
+                </div>
+
+                <button type="submit" class="button is-primary" [disabled]="!createUserForm.valid" >Create</button>
+
+            </form>
+        </div>
+    </div>
+</section>

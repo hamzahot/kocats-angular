@@ -1,0 +1,66 @@
+
+<div class="is-flex" style=" height: 400px; background-color: beige;">
+    <div class="gallery">
+      <div class="slide" *ngFor="let photo of cat?.photos">
+        <img [src]="'../../assets/slike_macaka/' + photo" alt="cat-photo">
+      </div>
+      <a class="prev" (click)="plusSlides(-1)">&#10094;</a>
+      <a class="next" (click)="plusSlides(1)">&#10095;</a>
+    </div>
+
+    
+
+
+    <div class="custom ml-6 px-8 is-flex is-flex-direction-row is-justify-content-space-start" style="gap : 15px;" >
+
+      <div class="py-5 px-8 is-flex is-flex-direction-column is-justify-content-space-around">
+        <div>
+          <span class="has-text-weight-bold">Name of the cat : {{cat?.name}}</span>
+        </div>
+        <div>
+          <span class="has-text-weight-bold" >Age : {{ currentYear - ((cat?.yearBorn) || 2020) }}</span>
+        </div>
+        <div>
+          <span class=" has-text-weight-bold" >Gender : {{cat?.gender}}</span>
+        </div>
+        <div>
+          <span class="has-text-weight-bold">Sterilized : No</span>
+        </div>
+      </div>
+
+      <div class="is-flex is-flex-direction-column is-justify-content-space-around">
+
+        <div style="width: 500px;word-wrap: break-word;word-break: break-all;"  >
+          <p class="has-text-centered is-size-4">Breeds : </p>
+          <div style="max-height: 350px;" class="hide">
+            <ul >
+                <li *ngFor="let race of cat?.breeds" >
+                    {{race.name  | uppercase}} : 
+                    <p>{{race.description}}</p>
+                </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="is-flex is-flex-direction-column is-justify-content-space-around">
+          <div class="is-flex is-flex-direction-column is-justify-content-center" >
+            <button (click)="takeToVet()" class="button is-warning is-rounded"> Odvedi kod veterinara </button>
+          </div>
+          <div class="is-flex is-flex-direction-column is-justify-content-center">
+            <button (click)="feedTheCat()" class="button is-warning is-rounded">Nahrani macku</button>
+          </div>
+          <div class="is-flex is-flex-direction-column is-justify-content-center" >
+            <button (click)="sterilizeCat()" class="button is-warning is-rounded">Sterilisi macku</button>
+          </div>
+            
+            
+          
+      </div>
+      
+    </div>
+
+</div>
+
+<div class="cust mt-6"> </div>
+  

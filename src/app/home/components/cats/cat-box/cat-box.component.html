@@ -1,0 +1,59 @@
+<mat-card [ngClass]="{'has-text-centered my-0' : !fullWidthMode}" *ngIf="cat" >
+    
+    <div [ngClass]="{'is-flex' : fullWidthMode }" >
+        <img  class="mb-1 mx-auto pr-3" 
+            [ngClass]="{'slika150' : !fullWidthMode, 'slika200' : fullWidthMode }"
+        [src]="'../../../../../assets/slike_macaka/' + cat.photos[0]" alt="cat photo">
+
+        <div style="width: 100%;" 
+            [ngClass]="{'px-8 is-flex is-flex-direction-column is-justify-content-space-between' : fullWidthMode}"
+        >
+            <!-- ; max-width:120px;  max-height: 110px; -->
+            <div  [ngClass]="{'px-8 is-flex is-flex-direction-row is-justify-content-space-start gap ' : fullWidthMode}" >
+                <div [ngClass]="{'px-8 is-flex is-flex-direction-column is-justify-content-space-around gap' : fullWidthMode}" >
+                    <div style="margin-bottom: 3px;">
+                        <span class="dio_teksta" style="color : yellow; font-size: larger ; font-weight: bold;" >Cat name : {{cat.name}}</span> 
+                    </div>
+                    <div style="margin-bottom: 3px;">
+                        <span class="dio_teksta" style="color : purple" >Gender : {{cat.gender}}</span>
+                    </div>
+                    <div>
+                        <span class="dio_teksta" style="color : aqua" >Age : {{currentYear - cat.yearBorn}}</span>
+                    </div>
+                </div>
+                
+
+                <div *ngIf="fullWidthMode" style="width: 450px; max-height: 200px;" class="is-flex is-flex-direction-column is-justify-content-center " >
+                        <div class="text-ellipsis">
+                            <ul >
+                                <li *ngFor="let race of cat?.breeds" style="color: green;" >
+                                    {{race.name  | uppercase}} : 
+                                    <p>{{race.description}}</p>
+                                </li>
+                            </ul>                            
+                        </div>
+                </div>
+
+                
+            </div>
+
+            <div style="height: 40px;"  class="is-flex is-justify-content-space-between" >
+                <!-- <span style="color: #F87171; line-height: 40px; vertical-align: middle;" > {{ '33' | currency : 'EUR' }} </span> -->
+               
+                    <a 
+                    class="button is-small is-white" 
+                    style="line-height: 40px; vertical-align: middle; text-decoration: underline;color: blue;"
+                    (click)="viewDetails(cat.catId)"
+                    >More details</a>
+                
+                
+                <button mat-icon-button (click)="viewDetails(cat.catId)" >
+                    <mat-icon style="color: #9CA3AF; " >pets</mat-icon>
+                </button>
+            </div>
+
+        </div>
+
+    </div>
+        
+</mat-card>

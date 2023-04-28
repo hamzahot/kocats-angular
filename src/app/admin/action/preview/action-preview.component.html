@@ -1,0 +1,30 @@
+<section>
+    <h4 class="title is-4">Pregled akcija vezanih za macke</h4>
+  <hr />
+
+  <table class="table is-bordered is-striped is-narrow is-hoverable">
+    <thead>
+      <th>Naziv</th>
+      <th>Opis</th>
+      <th>Cijena</th>
+      <th>Akcije</th>
+    </thead>
+    <tbody>
+      <tr *ngFor="let action of actions">
+        <td>{{ action.name }}</td>
+        <td> {{ action.description }} </td>
+        <td>{{ action.price }}</td>
+        <td>
+            <span class="icon" [ngStyle]="{'cursor': 'pointer'}" [routerLink]="['/admin/action/edit', action.id]">
+              <i class="fas fa-edit"></i>
+            </span>
+
+            <span class="icon" [ngStyle]="{'cursor': 'pointer'}" (click)="deleteAction(action.id)"  >
+                <i class="fas fa-trash-alt"></i>
+              </span>
+
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</section>

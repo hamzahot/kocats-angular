@@ -1,0 +1,105 @@
+<nav style="background-color: aliceblue" class="navbar" role="navigation" aria-label="main navigation">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="https://bulma.io">
+        <img src="http://catsmuseum.org/images/Logo.jpg" width="95" >
+      </a>
+  
+      <a [ngClass]="{'is-active' : displayMobileView}" role="button" class="navbar-burger " 
+         aria-label="menu" aria-expanded="false" 
+         data-target="navbarBasicExample"
+         (click) = "toogleMobileView()">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </a>
+    </div>
+  
+    <div id="navbarBasicExample" class="navbar-menu"  [ngClass]="{'is-active' : displayMobileView}">
+      <div class="navbar-start">
+        <a [routerLink]="link.url" class="navbar-item" *ngFor="let link of links" >
+          {{link.name}}
+        </a>  
+      </div>
+  
+      <div class="navbar-end" *ngIf="!isUserAuthenticated; else adminView" >
+        <div class="navbar-item">
+          <div class="buttons">
+            <a class="button is-primary mr-4" [routerLink]="'/register'" >  
+              <strong>Sign up</strong>
+            </a>
+            <a class="button is-light mr-4" [routerLink]="'/login'">
+              Log in
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <ng-template #adminView>
+        
+        <div class="navbar-end" >
+          <div class="navbar-item">
+            <div class="buttons">
+              <a class="button is-primary"  [routerLink]="'/admin'">
+                <strong>Administration</strong>
+              </a>
+              <a class="button is-light " (click) = "logout()">
+                Logout
+              </a>
+             
+              <button mat-icon-button  [matMenuTriggerFor]="menu">
+                <mat-icon 
+                  [matBadge]="itemsQuantity"
+                  [matBadgeHidden]="!itemsQuantity"
+                  matBadgeColor="warn"
+                >shopping_cart</mat-icon>
+              </button>
+
+              <mat-menu #menu>
+                <div class="p-3 myBorder">
+                  <div class="pb-3 is-flex is-justify-content-space-between">
+                    <span class="mr-6">{{itemsQuantity}} items</span>
+                    <a [routerLink]="'/cart'">View Cart</a>
+                  </div>
+            
+                  <div *ngIf="cart.items.length" class="pt-3 pb-3">
+                    <div 
+                      *ngFor="let item of cart.items"
+                      class="is-flex is-justify-content-space-between mb-2 font-light"
+                      >
+                        {{item.name}} X {{item.quantity}}
+                        <span class="has-text-weight-bold">{{ item.price | currency:'EUR'}}</span>
+                    </div>
+                  </div>
+                  <div class="is-flex is-justify-content-space-between my-3">
+                    Total:
+                    <span class="has-text-weight-bold">{{ getTotal(cart.items) | currency : 'EUR'}}</span>
+                  </div>
+            
+                  <div class="pt-3 is-flex is-justify-content-space-between" >
+                    <button 
+                      (click)="onClearCart()"
+                      class="has-background-danger-dark has-text-white myIcon"
+                      >
+                        <mat-icon>remove_shopping_cart</mat-icon>
+                    </button>
+            
+                    <button class="has-background-success has-text-white myIcon">
+                        <mat-icon>shopping_cart</mat-icon>
+                    </button>
+                  </div>
+            
+                </div>
+              </mat-menu>
+
+
+                
+             
+            </div>
+          </div>
+        </div>
+
+      </ng-template>
+
+
+    </div>
+  </nav>

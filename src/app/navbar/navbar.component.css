@@ -1,0 +1,14 @@
+
+
+.myBorder{
+    border-top-width: 1px; 
+    border-style: solid; 
+    border-color: aliceblue;
+}
+
+.myIcon{
+    height: 36px;
+    width: 36px;
+    border-radius: 9999px; 
+    border-color: white
+}

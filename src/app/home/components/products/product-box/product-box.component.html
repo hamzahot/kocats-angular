@@ -1,0 +1,29 @@
+<mat-card *ngIf="product" [ngClass]="{'has-text-centered my-0' : !fullWidthMode}" >
+    
+    <div [ngClass]="{'is-flex' : fullWidthMode }" >
+        <img  class="mb-1 mx-auto pr-3" 
+            [ngClass]="{'slika150' : !fullWidthMode, 'slika200' : fullWidthMode }"
+            [src]="'../../../../../assets/images/' + product.imageName" alt="Product Image" >
+            <!--  -->
+        <div style="width: 100%;" 
+            [ngClass]="{'px-8 is-flex is-flex-direction-column is-justify-content-space-between' : fullWidthMode}"
+        >
+            <!-- ; max-width:120px;  max-height: 110px; -->
+            <div>
+                <span>Proizvod</span>
+                <p class="dio_teksta" >{{product.name}}</p>
+                <p *ngIf="fullWidthMode" >{{product.description}}</p>
+            </div>
+
+            <div style="height: 40px;"  class="is-flex is-justify-content-space-between" >
+                <span style="color: #F87171; line-height: 40px; vertical-align: middle;" > {{ product.price | currency : 'EUR' }} </span>
+                <button (click)="onAddToCart()" mat-icon-button >
+                    <mat-icon style="color: #9CA3AF; " >shopping_cart</mat-icon>
+                </button>
+            </div>
+
+        </div>
+
+    </div>
+        
+</mat-card>

@@ -1,0 +1,21 @@
+
+
+.truncate{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap; 
+}
+
+.mat-cell {
+    vertical-align: middle;
+  }
+
+
+.mat-header-cell{
+    vertical-align: middle;
+}
+
+
+.mat-footer-cell button{
+    margin-top: 15px;
+}

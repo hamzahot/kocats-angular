@@ -1,0 +1,36 @@
+<section style="padding: 25px">
+    <h4 class="title is-4">Pregled korisnika</h4>
+    <hr />
+  
+    <table class="table is-bordered is-striped is-narrow is-hoverable" >
+      <thead>
+        <th>Ime</th>
+        <th>Prezime</th>
+        <th>Username</th>
+        <th>Email</th>
+        <th>Godine starosti</th>
+        <th>Broj telefona</th>
+        <th>Akcije</th>
+      </thead>
+      <tbody>
+        <tr *ngFor="let user of users">
+            <td>{{ user.firstName }}</td>
+            <td>{{ user.lastName }}</td>
+            <td>{{ user.username }}</td>
+            <td>{{ user.email ? user.email : '-' }}</td>
+            <td>23</td>
+            <td>{{ user.phoneNumber ? user.phoneNumber : '-' }}</td>
+            <td>
+                <span class="icon" [ngStyle]="{'cursor': 'pointer'}" (click) = "deleteUserById(user.id)">
+                    <i class="fas fa-trash-alt"></i>
+                  </span>
+        
+                  <span class="icon" [ngStyle]="{'cursor': 'pointer'}" [routerLink]="['/admin/user/edit']">
+                    <i class="fas fa-edit"></i>
+                  </span>
+            </td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+  

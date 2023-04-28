@@ -1,0 +1,33 @@
+<div class="columns" *ngIf="roleEditForm">
+    <div class="column" >
+        <form [formGroup]="roleEditForm" (ngSubmit)="updateRole()" >
+
+            <div class="field">
+                <label class="label">Name</label>
+                <div class="control">
+                    <input 
+                       type="text" 
+                       class="input" 
+                       placeholder="Enter role's name... "
+                       formControlName = "name"/>
+                </div>
+            </div>
+
+            <div class="field">
+                <label class="label">Description</label>
+                <div class="control">
+                    <input 
+                       type="text" 
+                       class="input" 
+                       placeholder="Enter role's description.. "
+                       formControlName = "description"/>
+                </div>
+            </div>
+
+
+            <button type="submit" class="button is-primary"  [disabled]="!roleEditForm.valid">Save Changes</button>
+
+
+        </form>
+    </div>
+</div>

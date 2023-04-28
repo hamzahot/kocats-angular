@@ -1,0 +1,34 @@
+<section *ngIf="catEditForm">
+    <div class="columns">
+        <div class="column">
+            <form [formGroup]="catEditForm" (ngSubmit)="updateCat()"> 
+                <div class="field">
+                    <label class="label">Name</label>
+                    <div class="control">
+                        <input 
+                           type="text" 
+                           class="input" 
+                           placeholder="Enter cat's name... "
+                           formControlName = "name"/>
+                    </div>
+                
+                </div>
+
+                <div class="field">
+                    <label class="label">Breeds</label>
+                    <div class="control">
+                        <div class="select is-multiple">
+                            <select multiple formControlName = "breeds" >
+                                <option *ngFor="let breed of breeds" [value]="breed"> {{breed.name}} </option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                    
+
+                <button type="submit" class="button is-primary"  [disabled]="!catEditForm.valid" >Save Changes</button>
+
+            </form>
+        </div>
+    </div>
+</section>

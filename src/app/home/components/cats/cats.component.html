@@ -1,0 +1,18 @@
+<app-cat-header (columnsCountChange)="onColumnsCountChange($event)" ></app-cat-header>
+
+<mat-grid-list
+    gutterSize="16"
+    [cols]="cols"
+    [rowHeight]="rowHeight"
+>
+    
+    <mat-grid-tile *ngFor="let cat of cats"  >
+        <app-cat-box 
+            style="width: 100%;" 
+            [fullWidthMode]="cols===1" 
+            [cat] = "cat"
+            ></app-cat-box>
+    </mat-grid-tile>
+    
+
+</mat-grid-list>

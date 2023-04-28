@@ -1,0 +1,19 @@
+
+<mat-drawer-container 
+[autosize]="true" 
+class="kontejner"
+>
+<mat-drawer  mode="side" opened class="p-6">
+    <app-filters></app-filters>
+</mat-drawer>
+
+<mat-drawer-content class="p-5">
+    <router-outlet></router-outlet>
+</mat-drawer-content>
+
+
+
+</mat-drawer-container>
+
+
+
